@@ -2,6 +2,7 @@ package com.example.game_of_three.server.controllers;
 
 import com.example.game_of_three.dto.GameMoveRequest;
 import com.example.game_of_three.dto.GameMoveResponse;
+import com.example.game_of_three.utils.GameUtilities;
 import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -22,6 +23,13 @@ public class GameController {
   @MessageMapping("/message")
   @SendTo("/topic/reply")
   public GameMoveResponse replyToMessageFromClient(@Payload GameMoveRequest message) {
+
+    // user has made a move ...
+    // compute the next step ... and return the response ...
+    // if not winner, let the computer make a move
+
+
+    //String next = GameUtilities.processNextNumber(message);
     return new GameMoveResponse(String.format("Hello, %s!!!", HtmlUtils.htmlEscape(message.getName())));
   }
 

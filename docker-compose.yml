@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  g03_mysql_db:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    expose:
+      - '3307'
+      - '3306'
+    ports:
+      - 3307:3306
+    volumes:
+      - mysql_db_data_container:/var/lib/mysql
+
+  game-of-three:
+    build: .
+    environment:
+      DATASOURCE_URL: jdbc:mysql://g03_mysql_db:3306/game_of_three?autoReconnect=true&useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+      DATASOURCE_USERNAME: root
+      DATASOURCE_PASSWORD: password
+      MAXIMUM_CLASS_SIZE: 50
+    expose:
+      - '9090'
+    ports:
+      - '9090:9090'
+
+volumes:
+  mysql_db_data_container:
