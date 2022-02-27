@@ -15,4 +15,8 @@ public class Player {
 
   @Column(name = "PLAYER_NAME")
   private String name;
+
+  @Column(name = "GAME_ID")
+  private Long gameId;
+
 }
