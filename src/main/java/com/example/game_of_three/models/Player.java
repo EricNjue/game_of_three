@@ -3,6 +3,7 @@ package com.example.game_of_three.models;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
@@ -14,9 +15,6 @@ public class Player {
   private Long id;
 
   @Column(name = "PLAYER_NAME")
+  @NotNull
   private String name;
-
-  @Column(name = "GAME_ID")
-  private Long gameId;
-
 }

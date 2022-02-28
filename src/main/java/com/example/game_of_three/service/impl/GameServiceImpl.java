@@ -1,5 +1,6 @@
 package com.example.game_of_three.service.impl;
 
+import com.example.game_of_three.dto.CreateGameRequest;
 import com.example.game_of_three.exceptions.*;
 import com.example.game_of_three.models.Game;
 import com.example.game_of_three.models.Player;
@@ -36,6 +37,7 @@ public class GameServiceImpl implements GameService {
     log.info("Creating a new game ...");
     game.setStatus(Status.NEW);
     gameRepository.save(game);
+
     return game;
   }
 
