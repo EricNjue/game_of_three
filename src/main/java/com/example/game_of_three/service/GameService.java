@@ -7,7 +7,7 @@ import com.example.game_of_three.utils.Status;
 import java.util.List;
 
 public interface GameService {
-  List<Game> listGames(Status[] statuses);
+  List<Game> listGames();
 
   Game create(Game game);
 

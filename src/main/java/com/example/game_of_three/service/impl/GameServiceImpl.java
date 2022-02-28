@@ -7,12 +7,14 @@ import com.example.game_of_three.repository.GameRepository;
 import com.example.game_of_three.service.GameService;
 import com.example.game_of_three.service.PlayerService;
 import com.example.game_of_three.utils.Status;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
 
 @Service
+@Slf4j
 public class GameServiceImpl implements GameService {
 
   private final PlayerService playerService;
@@ -24,12 +26,14 @@ public class GameServiceImpl implements GameService {
   }
 
   @Override
-  public List<Game> listGames(Status[] statuses) {
+  public List<Game> listGames() {
+    log.info("Fetching list of games ...");
     return gameRepository.findAll();
   }
 
   @Override
   public Game create(Game game) {
+    log.info("Creating a new game ...");
     game.setStatus(Status.NEW);
     gameRepository.save(game);
     return game;
@@ -135,6 +139,6 @@ public class GameServiceImpl implements GameService {
   }
 
   private Game getGameHelper(Long id) {
-    return gameRepository.getById(id);
+    return gameRepository.findById(id).orElse(null);
   }
 }
