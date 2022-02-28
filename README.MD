@@ -31,5 +31,10 @@ Within the project root folder execute the following commands :-
 * `docker-compose up`
 
 
+## Tests
+
+The tests can be found [here](https://github.com/EricNjue/game_of_three/blob/master/src/test/java/com/example/game_of_three/GameControllerTest.java)
+
+
 # Thank You :smile:
 Eric G Njue
