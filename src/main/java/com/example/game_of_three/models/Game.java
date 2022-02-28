@@ -27,7 +27,6 @@ public class Game {
   private Integer number;
   private Long playerOneId;
   private Long playerTwoId;
-  private Long winnerId;
   private Status status;
 
   private Long playerPerformedLastMoveId;
